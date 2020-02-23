@@ -8,16 +8,16 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestInsertionSort(t *testing.T) {
+func TestMergeSort(t *testing.T) {
 	for _, s := range tests {
 		input := s[0]
 		expected := s[1]
-		output := InsertionSort(input)
+		output := MergeSort(input)
 		assert.Equal(t, expected, output)
 	}
 }
 
-func BenchmarkInsertionSort(b *testing.B) {
+func BenchmarkMergeSort(b *testing.B) {
 	data := make([]int, benchListSize)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -27,6 +27,6 @@ func BenchmarkInsertionSort(b *testing.B) {
 			data[j] = rand.Int()
 		}
 		b.StartTimer()
-		InsertionSort(data)
+		MergeSort(data)
 	}
 }
