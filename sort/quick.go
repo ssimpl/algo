@@ -1,6 +1,6 @@
 package sort
 
-func QuickSort(a *[]int, start, end int) {
+func QuickSort(a []int, start, end int) {
 	if start >= end {
 		return
 	}
@@ -9,8 +9,8 @@ func QuickSort(a *[]int, start, end int) {
 	QuickSort(a, pIndex+1, end)
 }
 
-func partition(a *[]int, start, end int) int {
-	ar := *a
+func partition(a []int, start, end int) int {
+	ar := a
 	pivot := ar[end]
 	pIndex := start
 	for i := start; i <= end-1; i++ {
