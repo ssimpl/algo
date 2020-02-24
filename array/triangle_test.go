@@ -18,3 +18,10 @@ func TestPascalTriangle(t *testing.T) {
 	output := PascalTriangle(input)
 	assert.Equal(t, expected, output)
 }
+
+func TestPascalTriangleRow(t *testing.T) {
+	input := 4
+	expected := []int{1, 4, 6, 4, 1}
+	output := PascalTriangleRow(input)
+	assert.Equal(t, expected, output)
+}

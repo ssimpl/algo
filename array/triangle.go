@@ -27,3 +27,15 @@ func PascalTriangle(a int) [][]int {
 	}
 	return res
 }
+
+func PascalTriangleRow(n int) []int {
+	row := make([]int, n+1)
+	row[0], row[n] = 1, 1
+
+	for i := 0; i < n/2; i++ {
+		x := row[i] * (n - i) / (i + 1)
+		row[i+1], row[n-1-i] = x, x
+	}
+
+	return row
+}
