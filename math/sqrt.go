@@ -1,4 +1,4 @@
-package search
+package math
 
 //Sqrt return floor(sqrt(A))
 func Sqrt(a int) int {
