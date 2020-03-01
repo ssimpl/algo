@@ -41,6 +41,20 @@ func TestFindRotationCount(t *testing.T) {
 		output := FindRotationCount(arr, 0, len(arr)-1)
 		assert.Equal(t, expected, output)
 	})
+
+	t.Run("half the same", func(t *testing.T) {
+		arr := []int{1, 1, 3, 3, 3, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7}
+		expected := 0
+		output := FindRotationCount(arr, 0, len(arr)-1)
+		assert.Equal(t, expected, output)
+	})
+
+	t.Run("all the same", func(t *testing.T) {
+		arr := []int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}
+		expected := 0
+		output := FindRotationCount(arr, 0, len(arr)-1)
+		assert.Equal(t, expected, output)
+	})
 }
 
 func TestFindInRotated(t *testing.T) {

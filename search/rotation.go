@@ -7,7 +7,7 @@ func FindRotationCount(arr []int, start, end int) int {
 
 	mid := start + (end-start)/2
 	var count int
-	if arr[mid] >= arr[end] {
+	if arr[mid] > arr[end] {
 		count = FindRotationCount(arr, mid+1, end)
 	} else {
 		count = FindRotationCount(arr, start, mid-1)
