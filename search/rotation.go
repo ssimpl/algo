@@ -23,3 +23,15 @@ func FindRotationCount(arr []int, start, end int) int {
 	}
 	return mid
 }
+
+func FindInRotated(arr []int, x int) int {
+	shift := FindRotationCount(arr, 0, len(arr)-1)
+	unshiftedArr := make([]int, 0, len(arr))
+	unshiftedArr = append(unshiftedArr, arr[shift:]...)
+	unshiftedArr = append(unshiftedArr, arr[:shift]...)
+	pos := BinarySearch(unshiftedArr, x, 0, len(unshiftedArr)-1, true)
+	if pos == -1 {
+		return -1
+	}
+	return (pos + shift) % len(arr)
+}
