@@ -10,3 +10,17 @@ func DiffPossible(a []int, k int) int {
 	}
 	return 0
 }
+
+func DiffPossibleWithMap(a []int, k int) int {
+	values := make(map[int]int, len(a))
+	for _, v := range a {
+		values[v] += 1
+	}
+	for _, v := range a {
+		exp := v - k
+		if count, ok := values[exp]; ok && (exp != v || count > 1) {
+			return 1
+		}
+	}
+	return 0
+}
