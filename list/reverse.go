@@ -18,3 +18,12 @@ func Reverse(a *node) *node {
 
 	return head
 }
+
+func Reverse2(a *node, prev *node) *node {
+	next := a.next
+	a.next = prev
+	if next == nil {
+		return a
+	}
+	return Reverse2(next, a)
+}
