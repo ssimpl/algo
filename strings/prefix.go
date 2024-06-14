@@ -1,7 +1,11 @@
 package strings
 
-import "sort"
+import (
+	"sort"
+	"strings"
+)
 
+// 14. Longest Common Prefix
 func LongestCommonPrefix(a []string) string {
 	if len(a) == 0 {
 		return ""
@@ -54,4 +58,20 @@ func LongestCommonPrefix2(strs []string) string {
 	}
 
 	return prefix
+}
+
+// 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+func IsPrefixOfWord(sent string, word string) int {
+	ss := strings.Split(sent, " ")
+
+	for i, w := range ss {
+		if len(w) < len(word) {
+			continue
+		}
+		if strings.Compare(w[:len(word)], word) == 0 {
+			return i + 1
+		}
+	}
+
+	return -1
 }

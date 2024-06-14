@@ -50,3 +50,14 @@ func TestLongestCommonPrefix(t *testing.T) {
 		assert.Equal(t, exp, out)
 	})
 }
+
+func TestIsPrefixOfWord(t *testing.T) {
+	t.Parallel()
+
+	t.Run("base case", func(t *testing.T) {
+		t.Parallel()
+
+		res := IsPrefixOfWord("i love eating burger", "burg")
+		assert.Equal(t, 4, res)
+	})
+}
