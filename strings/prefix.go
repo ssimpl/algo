@@ -1,5 +1,7 @@
 package strings
 
+import "sort"
+
 func LongestCommonPrefix(a []string) string {
 	if len(a) == 0 {
 		return ""
@@ -8,11 +10,9 @@ func LongestCommonPrefix(a []string) string {
 		return a[0]
 	}
 
-	short := a[0]
-	min := len(short)
+	min := len(a[0])
 	for i := 1; i < len(a); i++ {
 		if len(a[i]) < min {
-			short = a[i]
 			min = len(a[i])
 		}
 	}
@@ -31,4 +31,27 @@ func LongestCommonPrefix(a []string) string {
 	}
 
 	return pref
+}
+
+func LongestCommonPrefix2(strs []string) string {
+	if len(strs) == 0 {
+		return ""
+	}
+	if len(strs) == 1 {
+		return strs[0]
+	}
+
+	sort.Strings(strs)
+
+	var prefix string
+	first, last := strs[0], strs[len(strs)-1]
+	for i := 0; i < len(first) && i < len(last); i++ {
+		if first[i] == last[i] {
+			prefix = first[:i+1]
+		} else {
+			break
+		}
+	}
+
+	return prefix
 }
